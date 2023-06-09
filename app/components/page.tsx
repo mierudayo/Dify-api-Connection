@@ -4,6 +4,7 @@ import PowerBy, { PowerByFooter } from '@/components/power-by'
 import Button from '@/components/button'
 import AcademicCap from '@heroicons/react/24/solid/AcademicCapIcon'
 import LikeAndDislike from '@/components/like-and-dislike'
+import Loading from '@/components/loading'
 const Home = () => {
   return <main className={styles.container}>
     <h1>Components</h1>
@@ -34,6 +35,11 @@ const Home = () => {
 
     <div>
       <h2>Select</h2>
+    </div>
+
+    <div>
+      <h2>Loading</h2>
+      <Loading />
     </div>
 
     <div className='flex flex-col'>
