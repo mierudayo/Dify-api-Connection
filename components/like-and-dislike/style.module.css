@@ -3,6 +3,7 @@
     padding: 2px;
     height: 28px;
 }
+
 .action {
     @apply inline-flex items-center justify-center cursor-pointer rounded-lg;
     padding: 4px;
@@ -33,12 +34,15 @@
 .action.action_like_active {
     @apply bg-blue-50;
 }
+
 .action.action_like_active .like {
     background: url('./assets/like_selected.svg') no-repeat center center;
 }
+
 .action.action_dislike_active {
     @apply bg-red-50;
 }
+
 .action.action_dislike_active .dislike {
-     background: url('./assets/dislike_selected.svg') no-repeat center center;
+    background: url('./assets/dislike_selected.svg') no-repeat center center;
 }
