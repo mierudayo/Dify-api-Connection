@@ -1,3 +1,4 @@
+'use client'
 import styles from './style.module.css'
 import PowerBy, { PowerByFooter } from '@/components/power-by'
 import Button from '@/components/button'
@@ -41,9 +42,15 @@ const Home = () => {
       <h2>Like And Dislike</h2>
       <div className='flex gap-2'>
         <div className='flex gap-2'>
-          <LikeAndDislike status='like' />
-          <LikeAndDislike status='dislike' />
-          <LikeAndDislike status='none' />
+          <LikeAndDislike status='like' onAction={(action) => {
+            console.log(action)
+          }}/>
+          <LikeAndDislike status='dislike' onAction={(action) => {
+            console.log(action)
+          }}/>
+          <LikeAndDislike status='none' onAction={(action) => {
+            console.log(action)
+          }}/>
         </div>
       </div>
     </div>
