@@ -2,6 +2,7 @@ import styles from './style.module.css'
 import PowerBy, { PowerByFooter } from '@/components/power-by'
 import Button from '@/components/button'
 import AcademicCap from '@heroicons/react/24/solid/AcademicCapIcon'
+import LikeAndDislike from '@/components/like-and-dislike'
 const Home = () => {
   return <main className={styles.container}>
     <h1>Components</h1>
@@ -32,7 +33,20 @@ const Home = () => {
       <h2>Chat Bubble</h2>
     </div>
 
-    <div>Select</div>
+    <div>
+      <h2>Select</h2>
+    </div>
+
+    <div className='flex flex-col'>
+      <h2>Like And Dislike</h2>
+      <div className='flex gap-2'>
+        <div className='flex gap-2'>
+          <LikeAndDislike status='like' />
+          <LikeAndDislike status='dislike' />
+          <LikeAndDislike status='none' />
+        </div>
+      </div>
+    </div>
   </main>
 }
 
