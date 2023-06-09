@@ -17,8 +17,6 @@ const Home = () => {
       <h2>Button</h2>
       <Button text="Blue" type='blue' className='mr-2' />
       <Button text="Red" type='red' className='mr-2' />
-      <Button text="Gray" type='gray' className='mr-2' />
-      <Button text="White" type='white' className='mr-2' />
       <Button text="Transparent" type='transparent' className='mr-2' />
       <Button text="Blue" type='blue' className='mr-2'>
         <AcademicCap className="h-4 w-4 text-white mr-2" />
