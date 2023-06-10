@@ -1,3 +1,6 @@
+.container {
+  @apply flex flex-col shadow-lg rounded-lg;
+}
 .form {
-  @apply flex flex-col gap-3;
+  @apply flex flex-col gap-3 p-4;
 }

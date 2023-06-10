@@ -11,7 +11,13 @@ interface HintProps {
 
 const Hint: FC<HintProps> = ({ hint, hintDescription, onAction }) => {
   return (
-    <div className={cn('flex flex-col gap-1 px-6 py-5 rounded-lg mim-h-16', 'bg-indigo-50 text-indigo-600')}>
+    <div
+      className={cn(
+        'flex flex-col gap-1  rounded-lg mim-h-16',
+        'bg-indigo-50 text-indigo-600',
+        'px-4 py-3 sm:px-6 sm:py-4'
+      )}
+    >
       <div className='flex text-xs items-center justify-between'>
         <span className='inline-flex'>
           <Sparkles className='h-4 w-4 text-indigo-500 mr-1' />

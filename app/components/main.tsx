@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './style.module.css'
-import PowerBy, { PowerByFooter } from '@/components/power-by'
+import XPowerBy, { XPowerByFooter, XPowerByPrivacy } from '@/components/x-power-by'
 import Button from '@/components/button'
 import ChatBubble from '@heroicons/react/24/solid/ChatBubbleOvalLeftEllipsisIcon'
 import PencilSquare from '@heroicons/react/24/solid/PencilSquareIcon'
@@ -39,15 +39,10 @@ const Main = () => {
   return (
     <main className={styles.container}>
       <h1>Components</h1>
-      <div>
-        <h2>Power By</h2>
-        <PowerBy />
-        <PowerByFooter appName='Dify.AI' />
-      </div>
 
       <div>
         <h2>Form</h2>
-        <Form items={items} />
+        <Form hint='Init Prompt' items={items} />
       </div>
 
       <div>
@@ -155,6 +150,13 @@ const Main = () => {
 
       <div>
         <h2>Chat Bubble</h2>
+      </div>
+
+      <div className='flex flex-col gap-3'>
+        <h2>Power By</h2>
+        <XPowerBy />
+        <XPowerByFooter appName='Dify.AI' />
+        <XPowerByPrivacy />
       </div>
     </main>
   )
