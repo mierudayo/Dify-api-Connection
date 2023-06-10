@@ -1,9 +1,6 @@
-const Home = () => {
-  return (
-    <main>
-      <h1>Chat</h1>
-    </main>
-  )
+const Home = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+  return <main className='flex min-h-screen flex-col items-center justify-between p-24'>Chat</main>
 }
 
 export default Home
