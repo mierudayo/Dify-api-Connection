@@ -3,11 +3,14 @@ import React, { useState } from 'react'
 import styles from './style.module.css'
 import PowerBy, { PowerByFooter } from '@/components/power-by'
 import Button from '@/components/button'
-import AcademicCap from '@heroicons/react/24/solid/AcademicCapIcon'
+import ChatBubble from '@heroicons/react/24/solid/ChatBubbleOvalLeftEllipsisIcon'
+
 import LikeAndDislike from '@/components/like-and-dislike'
 import Loading from '@/components/loading'
 import Input from '@/components/input'
 import Select from '@/components/select'
+import WordCount from '@/components/word-count'
+
 const Home = () => {
   const [value, setValue] = useState('Hello')
   const [selectValue, setSelectValue] = useState(undefined)
@@ -28,8 +31,8 @@ const Home = () => {
           <Button text='Transparent' type='transparent' />
 
           <Button text='Blue' type='blue'>
-            <AcademicCap className='h-4 w-4 text-white mr-2' />
-            Hello Cap
+            <ChatBubble className='h-4 w-4 text-white mr-2' />
+            Start Chat
           </Button>
         </div>
       </div>
@@ -63,6 +66,10 @@ const Home = () => {
         />
       </div>
 
+      <div>
+        <h2>Word Count</h2>
+        <WordCount wordCount={value.length} />
+      </div>
       <div>
         <h2>Chat Bubble</h2>
       </div>

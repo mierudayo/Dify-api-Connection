@@ -3,7 +3,7 @@
 }
 
 .button.blue {
-  @apply text-white bg-blue-700 hover:bg-blue-800;
+  @apply text-white bg-blue-600 hover:bg-blue-700;
 }
 
 .button.gray {
