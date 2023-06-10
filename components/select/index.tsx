@@ -34,7 +34,7 @@ const Select: FC<SelectProps> = ({ value, options, className, onSelect }) => {
         </span>
       </div>
       {open && (
-        <div className={cn('absolute top-12 left-0 py-1 px-2 w-full', 'bg-white rounded-lg shadow-md', className)}>
+        <div className={cn('absolute top-12 left-0 py-1 px-2', 'bg-white rounded-lg shadow-md', className)}>
           {options.map((item, index) => (
             <div
               key={`${item.value}-${index}`}
