@@ -7,8 +7,10 @@ import AcademicCap from '@heroicons/react/24/solid/AcademicCapIcon'
 import LikeAndDislike from '@/components/like-and-dislike'
 import Loading from '@/components/loading'
 import Input from '@/components/input'
+import Select from '@/components/select'
 const Home = () => {
   const [value, setValue] = useState('Hello')
+  const [selectValue, setSelectValue] = useState(undefined)
   return (
     <main className={styles.container}>
       <h1>Components</h1>
@@ -40,15 +42,29 @@ const Home = () => {
             setValue(e.target.value)
           }}
           placeholder='Input something here...'
+          className='w-1/2'
+        />
+      </div>
+
+      <div>
+        <h2>Select</h2>
+        <Select
+          value={selectValue}
+          className='w-1/2'
+          options={[
+            { label: 'Option 1', value: 'option-1' },
+            { label: 'Option 2', value: 'option-2' },
+            { label: 'Option 3', value: 'option-3' },
+            { label: 'Option 4', value: 'option-4' }
+          ]}
+          onSelect={(value) => {
+            setSelectValue(value)
+          }}
         />
       </div>
 
       <div>
         <h2>Chat Bubble</h2>
-      </div>
-
-      <div>
-        <h2>Select</h2>
       </div>
 
       <div>
