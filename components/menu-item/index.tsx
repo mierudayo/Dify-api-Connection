@@ -44,7 +44,7 @@ const MenuItem: FC<MenuItemProps> = ({ active = false, text, actions, onActionCl
             <div
               className={cn(
                 styles.actionMenu,
-                'absolute top-0 right-0 mt-8',
+                'absolute top-0 right-0 mt-7',
                 'w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5'
               )}
             >
@@ -52,7 +52,8 @@ const MenuItem: FC<MenuItemProps> = ({ active = false, text, actions, onActionCl
                 {actions?.map((action, index) => (
                   <div
                     key={index}
-                    onClick={() => {
+                    onClick={(evt) => {
+                      evt.stopPropagation()
                       setShowActions(false)
                       onActionClick && onActionClick(action.value)
                     }}
