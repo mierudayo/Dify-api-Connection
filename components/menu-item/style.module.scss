@@ -1,10 +1,16 @@
 .item {
-  @apply flex w-full px-4 py-2 items-center gap-2 text-sm font-medium h-9 rounded-lg;
+  @apply flex w-full items-center gap-2 text-sm font-medium h-9 rounded-lg justify-between;
   @apply text-gray-700 bg-white;
   @apply cursor-pointer;
 
+  .action {
+    @apply hidden;
+  }
   &:hover {
     @apply text-blue-700 bg-blue-50;
+    .action {
+      @apply inline-flex;
+    }
   }
   &.active {
     @apply text-blue-700 bg-blue-50;

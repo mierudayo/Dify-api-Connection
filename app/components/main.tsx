@@ -154,7 +154,17 @@ const Main = () => {
       </div>
       <div className='flex flex-col'>
         <h2>Menu Item</h2>
-        <MenuItem text='Menu Item' onClick={() => {}} />
+        <MenuItem
+          text='Menu Item'
+          onClick={() => {}}
+          actions={[
+            { label: 'Option 1', value: 'option-1' },
+            { label: 'Option 2', value: 'option-2' }
+          ]}
+          onActionClick={(value) => {
+            console.log(value)
+          }}
+        />
         <MenuItem text='Menu Item' onClick={() => {}} />
         <MenuItem
           text='Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore.'
