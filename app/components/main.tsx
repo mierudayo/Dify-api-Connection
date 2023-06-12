@@ -13,6 +13,7 @@ import WordCount from '@/components/word-count'
 import Welcome from '@/components/welcome'
 import Hint from '@/components/hint'
 import Form from '@/components/form'
+import MenuItem from '@/components/menu-item'
 
 const Main = () => {
   const [value, setValue] = useState('Hello')
@@ -150,6 +151,16 @@ const Main = () => {
 
       <div>
         <h2>Chat Bubble</h2>
+      </div>
+      <div className='flex flex-col'>
+        <h2>Menu Item</h2>
+        <MenuItem text='Menu Item' onClick={() => {}} />
+        <MenuItem text='Menu Item' onClick={() => {}} />
+        <MenuItem
+          text='Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore.'
+          onClick={() => {}}
+          active
+        />
       </div>
 
       <div className='flex flex-col gap-3'>
