@@ -26,8 +26,8 @@ interface FormProps {
 }
 export const FormItem: FC<FormItemProps> = ({ type, label, options }) => {
   return (
-    <div className={cn('flex gap-2 flex-col sm:flex-row')}>
-      <label className={cn('flex items-center', 'text-gray-900 text-xs w-32')}>{label}</label>
+    <div className={cn('flex flex-col sm:flex-row')}>
+      <label className={cn('flex items-center', 'text-gray-900 text-xs w-32 shrink-0')}>{label}</label>
       {type === 'text-input' && <Input className='w-full' value='' onChange={() => {}} />}
       {type === 'select' && options && (
         <Select
@@ -49,10 +49,13 @@ const Form: FC<FormProps> = ({ items, hint, hintDescription }) => {
         {items.map((item) => {
           return <FormItem key={item.label} {...item} />
         })}
-        <Button text='Blue' type='blue' className='w-32 sm:ml-28 h-9'>
-          <ChatBubble className='h-4 w-4 text-white mr-2' />
-          Start Chat
-        </Button>
+        <div className={cn('flex flex-col sm:flex-row')}>
+          <div className='flex w-32'></div>
+          <Button text='' type='blue' className='w-32 h-9'>
+            <ChatBubble className='h-4 w-4 text-white mr-2' />
+            Start Chat
+          </Button>
+        </div>
       </form>
     </div>
   )
