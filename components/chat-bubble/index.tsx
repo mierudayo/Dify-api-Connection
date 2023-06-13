@@ -1,5 +1,4 @@
 'use strict'
-'use client'
 import React, { FC } from 'react'
 import styles from './style.module.scss'
 import cn from 'classnames'
@@ -8,6 +7,8 @@ interface ChatBubbleProps {
   like_and_dislike?: 'like' | 'dislike' | 'none'
   content: string
   mine?: boolean
+  time?: number
+  tokens?: number
 }
 
 const ChatBubble: FC<ChatBubbleProps> = ({
@@ -16,8 +17,9 @@ const ChatBubble: FC<ChatBubbleProps> = ({
   mine = false
 }) => {
   return (
-    <div className={cn(styles.bubble, mine ? 'pr-2' : 'pl-2')}>
+    <div className={cn(styles.bubble, !mine ? 'pl-2 pr-14' : 'pr-2 pl-14')}>
       <div className={cn(styles.content, mine ? styles.mine : styles.other)}>
+        <div className={cn(styles.avatar, mine && styles.mine)}></div>
         <div className={cn('inline-flex flex-col', styles.shape)}>
           {opening_statement && (
             <div className={cn('text-gray-500 text-xs', 'flex items-center')}>
@@ -28,7 +30,8 @@ const ChatBubble: FC<ChatBubbleProps> = ({
           {content}
         </div>
       </div>
-      <div></div>
+      {/* TODO copy to clipboard like_and_dislike */}
+      <div className={cn(styles.actions)}></div>
     </div>
   )
 }
