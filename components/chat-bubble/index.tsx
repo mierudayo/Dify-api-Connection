@@ -10,9 +10,18 @@ interface ChatBubbleProps {
   mine?: boolean
 }
 
-const ChatBubble: FC<ChatBubbleProps> = ({ opening_statement, content, mine = false }) => {
+const ChatBubble: FC<ChatBubbleProps> = ({
+  opening_statement,
+  content,
+  mine = false
+}) => {
   return (
-    <div className={cn(styles.bubble, mine ? styles.bubble_mine : styles.bubble_other)}>
+    <div
+      className={cn(
+        styles.bubble,
+        mine ? styles.bubble_mine : styles.bubble_other
+      )}
+    >
       {opening_statement && <div>{opening_statement}</div>}
       <div>{content}</div>
       <div></div>
