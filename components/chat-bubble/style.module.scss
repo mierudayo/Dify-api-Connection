@@ -2,13 +2,23 @@
   @apply flex flex-col;
 
   .content {
-    @apply flex items-center flex-row-reverse;
+    @apply flex items-center;
+    &:hover {
+      .shape .actions {
+        @apply block;
+      }
+    }
     .shape {
       @apply rounded-2xl px-4 py-3;
       .icon {
         @apply inline-flex w-4 h-4 mr-1;
         background: url(./assets/heart_label.svg) no-repeat no-repeat;
         background-size: contain;
+      }
+      .actions {
+        @apply absolute h-8 hidden;
+        top: -16px;
+        right: -8px;
       }
     }
     &.mine {

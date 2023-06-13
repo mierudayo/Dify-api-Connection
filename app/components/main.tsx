@@ -158,7 +158,7 @@ const Main = () => {
 
       <div>
         <h2>Chat Bubble</h2>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-6'>
           <ChatBubble content='Hello' opening_statement='Hello World' />
           <ChatBubble content='Hello' mine />
           <ChatBubble content='Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore. Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore.Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore.' />
