@@ -16,14 +16,11 @@ const ChatBubble: FC<ChatBubbleProps> = ({
   mine = false
 }) => {
   return (
-    <div
-      className={cn(
-        styles.bubble,
-        mine ? styles.bubble_mine : styles.bubble_other
-      )}
-    >
+    <div className={cn(styles.bubble, mine ? 'pr-2' : 'pl-2')}>
       {opening_statement && <div>{opening_statement}</div>}
-      <div>{content}</div>
+      <div className={cn(styles.content, mine ? styles.mine : styles.other)}>
+        <span className={cn('inline-flex', styles.shape)}>{content}</span>
+      </div>
       <div></div>
     </div>
   )

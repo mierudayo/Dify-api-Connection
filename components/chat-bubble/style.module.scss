@@ -1,25 +1,36 @@
 .bubble {
-  @apply flex flex-col px-4 py-3 rounded-lg;
+  @apply flex flex-col;
 
-  &.bubble_mine {
-    @apply relative rounded-tr-none bg-[#D1E9FF80] mr-4;
-
-    &::before {
-      content: '';
-      @apply absolute w-4 h-4;
-      top: 0;
-      right: -16px;
-      background: url(./assets/right.svg) no-repeat;
+  .content {
+    @apply flex;
+    .shape {
+      @apply rounded-lg px-4 py-3;
     }
-  }
-  &.bubble_other {
-    @apply relative rounded-tl-none bg-gray-100 ml-2;
-    &::before {
-      top: 0;
-      left: -8px;
-      content: '';
-      @apply absolute w-4 h-4;
-      background: url(./assets/left.svg) no-repeat;
+    &.mine {
+      @apply relative flex-row-reverse;
+      .shape {
+        @apply rounded-tr-none bg-[#D1E9FF80];
+      }
+      &::before {
+        content: '';
+        @apply absolute w-4 h-4;
+        top: 0;
+        right: -16px;
+        background: url(./assets/right.svg) no-repeat;
+      }
+    }
+    &.other {
+      @apply relative flex-row;
+      .shape {
+        @apply rounded-tl-none bg-gray-100;
+      }
+      &::before {
+        top: 0;
+        left: -8px;
+        content: '';
+        @apply absolute w-4 h-4;
+        background: url(./assets/left.svg) no-repeat;
+      }
     }
   }
 }
