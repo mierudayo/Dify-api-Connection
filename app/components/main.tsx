@@ -1,7 +1,10 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './style.module.css'
-import XPowerBy, { XPowerByFooter, XPowerByPrivacy } from '@/components/x-power-by'
+import XPowerBy, {
+  XPowerByFooter,
+  XPowerByPrivacy
+} from '@/components/x-power-by'
 import Button from '@/components/button'
 import ChatBubbleIcon from '@heroicons/react/24/solid/ChatBubbleOvalLeftEllipsisIcon'
 import PencilSquare from '@heroicons/react/24/solid/PencilSquareIcon'
@@ -143,7 +146,10 @@ const Main = () => {
 
       <div>
         <h2>Hint</h2>
-        <Hint hint='Initial Prompt' hintDescription='Initial Prompt Hint Description' />
+        <Hint
+          hint='Initial Prompt'
+          hintDescription='Initial Prompt Hint Description'
+        />
         <br />
         <Hint hint='Initial Prompt' />
         <br />
@@ -153,8 +159,13 @@ const Main = () => {
       <div>
         <h2>Chat Bubble</h2>
         <div className='flex flex-col gap-2'>
-          <ChatBubble content='Hello' />
+          <ChatBubble content='Hello' opening_statement='Hello World' />
           <ChatBubble content='Hello' mine />
+          <ChatBubble content='Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore. Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore.Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore.' />
+          <ChatBubble
+            content='Menu Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse dolorum quasi nobis non quo cumque modi eum, consectetur quibusdam! Magnam corporis iste repudiandae laborum dolore vero aspernatur distinctio architecto repellendus, molestiae dolor est magni sed debitis alias excepturi, accusantium maiores! Ipsam modi aperiam quos? Ipsum omnis esse blanditiis saepe labore.'
+            mine
+          />
         </div>
       </div>
       <div className='flex flex-col'>

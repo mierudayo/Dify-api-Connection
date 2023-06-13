@@ -2,9 +2,14 @@
   @apply flex flex-col;
 
   .content {
-    @apply flex;
+    @apply flex items-center;
     .shape {
-      @apply rounded-lg px-4 py-3;
+      @apply rounded-2xl px-4 py-3;
+      .icon {
+        @apply inline-flex w-4 h-4 mr-1;
+        background: url(./assets/heart_label.svg) no-repeat no-repeat;
+        background-size: contain;
+      }
     }
     &.mine {
       @apply relative flex-row-reverse;
