@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styles from './style.module.css'
 import XPowerBy, { XPowerByFooter, XPowerByPrivacy } from '@/components/x-power-by'
 import Button from '@/components/button'
-import ChatBubble from '@heroicons/react/24/solid/ChatBubbleOvalLeftEllipsisIcon'
+import ChatBubbleIcon from '@heroicons/react/24/solid/ChatBubbleOvalLeftEllipsisIcon'
 import PencilSquare from '@heroicons/react/24/solid/PencilSquareIcon'
 import LikeAndDislike from '@/components/like-and-dislike'
 import Loading from '@/components/loading'
@@ -14,6 +14,7 @@ import Welcome from '@/components/welcome'
 import Hint from '@/components/hint'
 import Form from '@/components/form'
 import MenuItem from '@/components/menu-item'
+import ChatBubble from '@/components/chat-bubble'
 
 const Main = () => {
   const [value, setValue] = useState('Hello')
@@ -54,7 +55,7 @@ const Main = () => {
           <Button text='Transparent' type='transparent' />
 
           <Button text='Blue' type='blue'>
-            <ChatBubble className='h-4 w-4 text-white mr-2' />
+            <ChatBubbleIcon className='h-4 w-4 text-white mr-2' />
             Start Chat
           </Button>
 
@@ -151,6 +152,10 @@ const Main = () => {
 
       <div>
         <h2>Chat Bubble</h2>
+        <div className='flex flex-col gap-2'>
+          <ChatBubble content='Hello' />
+          <ChatBubble content='Hello' mine />
+        </div>
       </div>
       <div className='flex flex-col'>
         <h2>Menu Item</h2>

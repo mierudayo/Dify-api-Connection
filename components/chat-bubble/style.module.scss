@@ -1,0 +1,25 @@
+.bubble {
+  @apply flex flex-col px-4 py-3 rounded-lg;
+
+  &.bubble_mine {
+    @apply relative rounded-tr-none bg-[#D1E9FF80];
+
+    &::before {
+      content: '';
+      @apply absolute w-4 h-4;
+      top: 0;
+      right: -16px;
+      background: url(./assets/right.svg) no-repeat;
+    }
+  }
+  &.bubble_other {
+    @apply relative rounded-tl-none bg-gray-100;
+    &::before {
+      top: 0;
+      left: -8px;
+      content: '';
+      @apply absolute w-4 h-4;
+      background: url(./assets/left.svg) no-repeat;
+    }
+  }
+}
