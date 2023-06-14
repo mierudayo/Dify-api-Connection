@@ -16,20 +16,22 @@ const Button: FC<ButtonProps> = ({
   type = 'blue',
   onClick
 }: ButtonProps) => {
-  return <button
-    onClick={onClick}
-    className={cn(
-      className && className,
-      styles.button,
-      type === 'blue' && styles.blue,
-      type === 'gray' && styles.gray,
-      type === 'red' && styles.red,
-      type === 'white' && styles.white,
-      type === 'transparent' && styles.transparent
-    )}
-  >
-    {children || text}
-  </button>
+  return (
+    <button
+      onClick={onClick}
+      className={cn(
+        styles.button,
+        type === 'blue' && styles.blue,
+        type === 'gray' && styles.gray,
+        type === 'red' && styles.red,
+        type === 'white' && styles.white,
+        type === 'transparent' && styles.transparent,
+        className && className
+      )}
+    >
+      {children || text}
+    </button>
+  )
 }
 
 export default Button
