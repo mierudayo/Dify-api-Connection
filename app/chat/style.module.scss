@@ -1,9 +1,0 @@
-.main {
-  @apply flex;
-  .sidebar_wrapper {
-    @apply flex w-40 md:w-32 lg:w-40 shrink-0;
-  }
-  .content_wrapper {
-    @apply flex w-full;
-  }
-}

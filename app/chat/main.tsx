@@ -12,9 +12,12 @@ export interface AppProps {
   }
   user_input_form: any[]
 }
+interface ExtraProps {
+  locale: string
+}
 
-const Main: FC<AppProps> = ({}) => {
-  return <div></div>
+const Main: FC<AppProps & ExtraProps> = ({ locale }) => {
+  return <div className='flex'>{locale}</div>
 }
 
 export default Main
