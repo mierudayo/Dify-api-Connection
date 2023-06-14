@@ -1,14 +1,22 @@
-import { client } from '@/service'
+import { getLocale, client } from '@/service'
 import Main from './main'
-import ErrorPage from '@/components/error'
+
+async function getData() {
+  const { status, data: appInfo } = await client.getApplicationParameters()
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+  // Recommendation: handle errors
+  if (status !== 200) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+
+  return appInfo
+}
 
 const Home = async () => {
-  try {
-    const { data: appInfo } = await client.getApplicationParameters()
-    return <Main {...appInfo} />
-  } catch (_) {
-    return <ErrorPage />
-  }
+  const appInfo = await getData()
+  return <Main {...appInfo} locale={getLocale()} />
 }
 
 export default Home
