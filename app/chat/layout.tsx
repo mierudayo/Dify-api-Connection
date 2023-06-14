@@ -1,6 +1,6 @@
-import styles from './style.module.scss'
 import { Suspense } from 'react'
-import Loading from './loading'
+import Loading from '../components/loading'
+import styles from './style.module.scss'
 export default function Layout(props: {
   sidebar: React.ReactNode
   children: React.ReactNode
