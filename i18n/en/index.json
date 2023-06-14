@@ -1,1 +1,12 @@
-{}
+{
+  "app": {
+    "name": "My App",
+    "version": "Version",
+    "opts": {
+      "add": "Add",
+      "edit": "Edit",
+      "delete": "Delete",
+      "save": "Save"
+    }
+  }
+}
