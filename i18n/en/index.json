@@ -4,6 +4,9 @@
     "version": "Version",
     "chats": "Chats",
     "new_chat": "New Chat",
+    "start_chat": "Start Chat",
+    "try_to_ask": "Try to ask",
+    "opening_statement": "Opening statement",
     "opts": {
       "add": "Add",
       "edit": "Edit",

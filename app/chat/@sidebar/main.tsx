@@ -9,7 +9,7 @@ import { t } from '@/i18n'
 
 const Main: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
   return (
-    <div className='flex flex-col shrink-0 w-60 h-screen bg-white'>
+    <div className='flex flex-col shrink-0 w-60 h-screen bg-white hidden sm:block'>
       <div className='flex items-center w-full h-16 p-4'>
         <span className='h-8 w-8 mr-3 inline-flex items-center justify-center bg-blue-100 rounded-lg shrink-0'>
           🤖️

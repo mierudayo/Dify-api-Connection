@@ -26,9 +26,18 @@ interface FormProps {
 }
 export const FormItem: FC<FormItemProps> = ({ type, label, options }) => {
   return (
-    <div className={cn('flex flex-col sm:flex-row')}>
-      <label className={cn('flex items-center', 'text-gray-900 text-xs w-32 shrink-0')}>{label}</label>
-      {type === 'text-input' && <Input className='w-full' value='' onChange={() => {}} />}
+    <div className={cn('flex flex-col sm:flex-row gap-2')}>
+      <label
+        className={cn(
+          'flex items-center',
+          'text-gray-900 text-xs w-32 shrink-0'
+        )}
+      >
+        {label}
+      </label>
+      {type === 'text-input' && (
+        <Input className='w-full' value='' onChange={() => {}} />
+      )}
       {type === 'select' && options && (
         <Select
           className='w-full'

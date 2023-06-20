@@ -37,7 +37,7 @@ const Main: FC<AppProps & LocaleProps> = ({}) => {
         <Form hint='Init Prompt' items={items} />
       </section>
 
-      <section className='flex items-center justify-between'>
+      <section className='flex flex-col sm:flex-row items-center justify-between gap-4'>
         <XPowerByPrivacy />
         <XPowerBy />
       </section>
