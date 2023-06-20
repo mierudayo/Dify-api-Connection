@@ -1,7 +1,11 @@
 import Main from './main'
+import { getLocale, client } from '@/service'
+
+async function getData() {}
 
 const Sidebar = async () => {
-  return <Main />
+  const conversations = await getData()
+  return <Main locale={getLocale()} />
 }
 
 export default Sidebar

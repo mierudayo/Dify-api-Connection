@@ -1,23 +1,9 @@
 'use client'
 import { FC } from 'react'
+import { AppProps, LocaleProps } from '@/interface'
 
-export interface AppProps {
-  opening_statement: string
-  suggested_questions: any[]
-  suggested_questions_after_answer: {
-    enabled: boolean
-  }
-  more_like_this: {
-    enabled: boolean
-  }
-  user_input_form: any[]
-}
-interface ExtraProps {
-  locale: string
-}
-
-const Main: FC<AppProps & ExtraProps> = ({ locale }) => {
-  return <div className='flex'>{locale}</div>
+const Main: FC<AppProps & LocaleProps> = ({}) => {
+  return <div className='flex'></div>
 }
 
 export default Main

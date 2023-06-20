@@ -1,15 +1,13 @@
 'use client'
 import { FC } from 'react'
+import { LocaleProps } from '@/interface'
 import Button from '@/components/button'
 import PencilSquare from '@heroicons/react/24/solid/PencilSquareIcon'
 import MenuItem from '@/components/menu-item'
 
 import { t } from '@/i18n'
-interface ExtraProps {
-  locale: string
-}
 
-const Main: FC<ExtraProps> = ({ locale }) => {
+const Main: FC<LocaleProps> = ({ locale }) => {
   return (
     <div className='flex flex-col shrink-0 w-60 h-screen bg-white'>
       <div className='flex items-center w-full h-16 p-4'>
@@ -32,14 +30,15 @@ const Main: FC<ExtraProps> = ({ locale }) => {
         </Button>
       </div>
       <div className='mt-6 mx-4'>
-        <div className='ml-4 text-gray-500 text-xs'>
+        <div className='ml-4 text-gray-500 text-xs mb-1'>
           {t('app.chats', locale)}
         </div>
-
-        <MenuItem text='Menu Item' onClick={() => {}} />
-        <MenuItem text='Menu Item' onClick={() => {}} />
-        <MenuItem text='Menu Item' onClick={() => {}} />
-        <MenuItem text='Menu Item' onClick={() => {}} />
+        <div className='flex flex-col'>
+          <MenuItem text='Menu Item' onClick={() => {}} />
+          <MenuItem text='Menu Item' onClick={() => {}} />
+          <MenuItem text='Menu Item' onClick={() => {}} />
+          <MenuItem text='Menu Item' onClick={() => {}} />
+        </div>
       </div>
     </div>
   )

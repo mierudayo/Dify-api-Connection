@@ -5,6 +5,6 @@ dotenv.config()
 
 export const getLocale = () => {
   const cookieStore = cookies()
-  return cookieStore.get('locale')?.value
+  return cookieStore.get('locale')?.value || 'en' // default to english
 }
 export const client = new ChatClient(process.env.API_SECRET)
