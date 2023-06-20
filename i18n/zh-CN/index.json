@@ -7,6 +7,9 @@
     "start_chat": "开始聊天",
     "try_to_ask": "试着问问",
     "opening_statement": "开场白",
+    "welcome_message": "欢迎使用 Dify.AI",
+    "welcome_message_description": "Dify.AI 是一个基于人工智能的聊天机器人平台，它可以帮助您快速构建自己的聊天机器人。",
+    "initial_prompt": "初始提示",
     "opts": {
       "add": "添加",
       "edit": "编辑",
