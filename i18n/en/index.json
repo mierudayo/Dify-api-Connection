@@ -2,6 +2,8 @@
   "app": {
     "name": "My App",
     "version": "Version",
+    "chats": "Chats",
+    "new_chat": "New Chat",
     "opts": {
       "add": "Add",
       "edit": "Edit",

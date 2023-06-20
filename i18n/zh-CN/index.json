@@ -2,6 +2,8 @@
   "app": {
     "name": "应用",
     "version": "版本",
+    "chats": "聊天",
+    "new_chat": "新聊天",
     "opts": {
       "add": "添加",
       "edit": "编辑",

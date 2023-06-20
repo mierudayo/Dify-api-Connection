@@ -17,14 +17,19 @@ interface MenuItemProps {
   onActionClick?: (value: string) => void
 }
 
-const MenuItem: FC<MenuItemProps> = ({ active = false, text, actions, onActionClick }) => {
+const MenuItem: FC<MenuItemProps> = ({
+  active = false,
+  text,
+  actions,
+  onActionClick
+}) => {
   const [showActions, setShowActions] = React.useState(false)
 
   // TODO make showActions false when click outside and not on action button
 
   return (
     <div className={cn(styles.item, active && styles.active)}>
-      <ChatBubble className='w-4 h-4 inline-flex shrink-0 ml-3' />
+      <ChatBubble className='w-4 h-4 inline-flex shrink-0 ml-4' />
       <div className='truncate overflow-hidden w-32 sm:w-full grow'>{text}</div>
       {actions && actions.length > 0 && (
         <div
@@ -35,7 +40,7 @@ const MenuItem: FC<MenuItemProps> = ({ active = false, text, actions, onActionCl
             styles.action,
             'inline-flex relative w-6 h-6 mr-1.5',
             'rounded-md cursor-pointer items-center justify-center',
-            'bg-gray-200 hover:bg-gray-300 text-gray-700'
+            'bg-gray-100 hover:bg-gray-300 text-gray-700 shrink-0'
             // 'transition-colors duration-200 '
           )}
         >
@@ -58,7 +63,7 @@ const MenuItem: FC<MenuItemProps> = ({ active = false, text, actions, onActionCl
                       onActionClick && onActionClick(action.value)
                     }}
                     className={cn(
-                      'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900',
+                      'block px-4 py-4 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900',
                       'cursor-pointer'
                     )}
                   >
