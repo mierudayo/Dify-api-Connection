@@ -19,7 +19,7 @@ const Select: FC<SelectProps> = ({ value, options, className, onSelect }) => {
       <div
         className={cn(
           'flex items-center relative',
-          'h-9 px-3 py-2 rounded-lg bg-gray-100 outline outline-gray-300 cursor-pointer',
+          'h-9 px-3 py-2 rounded-lg bg-gray-100 hover:outline outline-gray-300 cursor-pointer',
           'hover:bg-gray-50 active:bg-gray-50 focus:bg-gray-50',
           'text-sm text-gray-900',
           className ? className : 'w-1/2'
@@ -30,7 +30,11 @@ const Select: FC<SelectProps> = ({ value, options, className, onSelect }) => {
       >
         <span>{selectedOption?.label || selectedOption?.name}</span>
         <span className='absolute mr-2 right-0'>
-          {open ? <ChevronUp className='h-4 w-4 text-gray-500' /> : <ChevronDown className='h-4 w-4 text-gray-500' />}
+          {open ? (
+            <ChevronUp className='h-4 w-4 text-gray-500' />
+          ) : (
+            <ChevronDown className='h-4 w-4 text-gray-500' />
+          )}
         </span>
       </div>
       {open && (
@@ -50,7 +54,9 @@ const Select: FC<SelectProps> = ({ value, options, className, onSelect }) => {
                 'text-sm text-gray-900',
                 'hover:bg-gray-100 active:bg-gray-100 focus:bg-gray-100 ',
                 'hover:rounded-lg active:rounded-lg focus:rounded-lg',
-                selectedOption?.value === item.value ? 'bg-gray-100' : 'bg-white'
+                selectedOption?.value === item.value
+                  ? 'bg-gray-100'
+                  : 'bg-white'
               )}
               onClick={() => {
                 setOpen(false)

@@ -58,7 +58,7 @@ const Form: FC<FormProps> = ({ items, hint, hintDescription }) => {
         {items.map((item) => {
           return <FormItem key={item.label} {...item} />
         })}
-        <div className={cn('flex flex-col sm:flex-row')}>
+        <div className={cn('flex flex-col sm:flex-row gap-2')}>
           <div className='flex w-32'></div>
           <Button text='' type='blue' className='w-32 h-9'>
             <ChatBubble className='h-4 w-4 text-white mr-2' />
