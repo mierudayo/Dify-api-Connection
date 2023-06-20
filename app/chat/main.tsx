@@ -5,26 +5,21 @@ import Welcome from '@/components/welcome'
 import Form from '@/components/form'
 import XPowerBy, { XPowerByPrivacy } from '@/components/x-power-by'
 
-const Main: FC<AppProps & LocaleProps> = ({}) => {
-  const items = [
-    {
-      type: 'text-input',
-      label: '昵称',
-      variable: 'name',
-      required: false,
-      max_length: 48,
-      default: ''
-    },
-    {
-      type: 'select',
-      label: '类型',
-      variable: 'type',
-      required: false,
-      options: ['单板', '双板'],
-      default: ''
-    }
-  ]
+const Main: FC<AppProps & LocaleProps> = ({ user_input_form }) => {
+  const items = user_input_form.map((itm: any) => {
+    const ik = Object.keys(itm)[0]
+    const iv = Object.values(itm)[0] as any
 
+    return {
+      type: ik,
+      label: iv.label,
+      variable: iv.variable,
+      required: iv.required,
+      max_length: iv.max_length,
+      default: iv.default,
+      options: iv.options
+    }
+  })
   return (
     <div className='flex flex-col w-full pt-32 px-5 sm:px-8 md:px-72 '>
       <section className='mb-6'>
