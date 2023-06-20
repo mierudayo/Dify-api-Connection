@@ -1,13 +1,13 @@
 'use client'
 import { FC } from 'react'
-import { LocaleProps } from '@/interface'
+import { LocaleProps, ConversationsProps } from '@/interface'
 import Button from '@/components/button'
 import PencilSquare from '@heroicons/react/24/solid/PencilSquareIcon'
 import MenuItem from '@/components/menu-item'
 
 import { t } from '@/i18n'
 
-const Main: FC<LocaleProps> = ({ locale }) => {
+const Main: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
   return (
     <div className='flex flex-col shrink-0 w-60 h-screen bg-white'>
       <div className='flex items-center w-full h-16 p-4'>

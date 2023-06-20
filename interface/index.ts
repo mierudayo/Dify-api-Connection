@@ -23,5 +23,7 @@ export interface ConversationProps {
 }
 
 export interface ConversationsProps {
-  conversations: ConversationProps[]
+  data: ConversationProps[]
+  has_more: boolean
+  limit: number
 }
