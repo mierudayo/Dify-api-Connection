@@ -9,8 +9,11 @@ import Form from '@/components/form'
 import XPowerBy, { XPowerByPrivacy } from '@/components/x-power-by'
 import I18N from '@/i18n'
 
+interface ExtraPropss {
+  user: string
+}
 interface IState {
-  inputs: any[]
+  inputs: any
   query: string
   conversation_id: string | null
   user: string | null
@@ -28,13 +31,28 @@ function reducer(state: IState, action: IAction): IState {
         ...state,
         query: action.payload
       }
+    case 'SET_INPUT':
+      const h = {} as any
+      action.payload.forEach((itm: any) => {
+        h[itm.variable] = itm.default
+      })
+      return {
+        ...state,
+        inputs: h
+      }
+    case 'SET_CONVERSATION_ID':
+      return {
+        ...state,
+        conversation_id: action.payload
+      }
     default: {
       return state
     }
   }
 }
 
-const Main: FC<AppProps & LocaleProps & ConversationsProps> = ({
+const Main: FC<AppProps & LocaleProps & ConversationsProps & ExtraPropss> = ({
+  user,
   user_input_form,
   locale
 }) => {
@@ -42,7 +60,7 @@ const Main: FC<AppProps & LocaleProps & ConversationsProps> = ({
     inputs: [],
     query: '',
     conversation_id: null,
-    user: null
+    user
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -105,7 +123,16 @@ const Main: FC<AppProps & LocaleProps & ConversationsProps> = ({
           />
         </section>
         <section className='mb-4'>
-          <Form hint={I18N(locale)('app.initial_prompt')} items={items} />
+          <Form
+            hint={I18N(locale)('app.initial_prompt')}
+            items={items}
+            onSubmit={(items) => {
+              dispatch({
+                type: 'SET_INPUT',
+                payload: items
+              })
+            }}
+          />
         </section>
 
         <section className='flex flex-col sm:flex-row items-center justify-between gap-4'>

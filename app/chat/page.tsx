@@ -1,5 +1,6 @@
 import { getLocale, client } from '@/service'
 import { ConversationsProps } from '@/interface'
+import { cookies } from 'next/headers'
 import Main from './main'
 
 async function getAppInfo() {
@@ -23,9 +24,16 @@ const Home = async () => {
   const locale = await getLocale()
   const appInfo = await getAppInfo()
   const conversations = await getConversations()
+  const cookieStore = cookies()
+  const user = cookieStore.get('user')?.value || 'anonymous'
   return (
     <main className={'flex w-full m-h-screen'}>
-      <Main {...appInfo} conversations={conversations} locale={locale} />
+      <Main
+        {...appInfo}
+        conversations={conversations}
+        locale={locale}
+        user={user}
+      />
     </main>
   )
 }
