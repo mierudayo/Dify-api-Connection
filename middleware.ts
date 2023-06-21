@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { v4 } from 'uuid'
+import dotenv from 'dotenv'
+dotenv.config()
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next()
@@ -10,7 +12,7 @@ export function middleware(request: NextRequest) {
   }
   // Check and set the user cookie if it doesn't exist
   if (!request.cookies.has('user')) {
-    response.cookies.set('user', v4())
+    response.cookies.set('user', `${process.env.APP_ID}_${v4()}`)
   }
   return response
 }
