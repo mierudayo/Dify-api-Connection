@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { v4 } from 'uuid'
-import dotenv from 'dotenv'
-dotenv.config()
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next()
