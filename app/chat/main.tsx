@@ -1,7 +1,11 @@
 'use client'
+import { Suspense } from 'react'
 import { FC, useReducer } from 'react'
-import { AppProps, LocaleProps } from '@/interface'
-
+import { AppProps, ConversationsProps, LocaleProps } from '@/interface'
+import Button from '@/components/button'
+import PencilSquare from '@heroicons/react/24/solid/PencilSquareIcon'
+import MenuItem from '@/components/menu-item'
+import Loading from '@/components/loading'
 import Welcome from '@/components/welcome'
 import Form from '@/components/form'
 import XPowerBy, { XPowerByPrivacy } from '@/components/x-power-by'
@@ -32,7 +36,10 @@ function reducer(state: IState, action: IAction): IState {
   }
 }
 
-const Main: FC<AppProps & LocaleProps> = ({ user_input_form, locale }) => {
+const Main: FC<AppProps & LocaleProps & ConversationsProps> = ({
+  user_input_form,
+  locale
+}) => {
   const initialState: IState = {
     inputs: [],
     query: '',
@@ -57,22 +64,60 @@ const Main: FC<AppProps & LocaleProps> = ({ user_input_form, locale }) => {
     }
   })
   return (
-    <div className='flex flex-col w-full pt-32 px-5 sm:px-8 md:px-72 '>
-      <section className='mb-6'>
-        <Welcome
-          name={I18N(locale)('app.welcome_message')}
-          description={I18N(locale)('app.welcome_message_description')}
-        />
-      </section>
-      <section className='mb-4'>
-        <Form hint={I18N(locale)('app.initial_prompt')} items={items} />
-      </section>
+    <>
+      <Suspense fallback={<Loading />}>
+        <div className='flex flex-col shrink-0 w-60 h-screen bg-white hidden sm:block'>
+          <div className='flex items-center w-full h-16 p-4'>
+            <span className='h-8 w-8 mr-3 inline-flex items-center justify-center bg-blue-100 rounded-lg shrink-0'>
+              🤖️
+            </span>
+            <span className='text-gray-800 text-md font-semibold truncate'>
+              {I18N(locale)('app.name')}
+            </span>
+          </div>
+          <div className='flex  mx-4'>
+            <Button
+              text=''
+              type='transparent'
+              onClick={() => {}}
+              className='w-full'
+            >
+              <PencilSquare className='h-4 w-4 mr-2 text-blue-600' />
+              <span className='text-blue-600'>
+                {I18N(locale)('app.new_chat')}
+              </span>
+            </Button>
+          </div>
+          <div className='mt-6 mx-4'>
+            <div className='ml-4 text-gray-500 text-xs mb-1'>
+              {I18N(locale)('app.chats')}
+            </div>
+            <div className='flex flex-col'>
+              <MenuItem text='Menu Item' onClick={() => {}} />
+              <MenuItem text='Menu Item' onClick={() => {}} />
+              <MenuItem text='Menu Item' onClick={() => {}} />
+              <MenuItem text='Menu Item' onClick={() => {}} />
+            </div>
+          </div>
+        </div>
+      </Suspense>
+      <div className='flex flex-col w-full pt-32 px-5 sm:px-8 md:px-72 '>
+        <section className='mb-6'>
+          <Welcome
+            name={I18N(locale)('app.welcome_message')}
+            description={I18N(locale)('app.welcome_message_description')}
+          />
+        </section>
+        <section className='mb-4'>
+          <Form hint={I18N(locale)('app.initial_prompt')} items={items} />
+        </section>
 
-      <section className='flex flex-col sm:flex-row items-center justify-between gap-4'>
-        <XPowerByPrivacy />
-        <XPowerBy />
-      </section>
-    </div>
+        <section className='flex flex-col sm:flex-row items-center justify-between gap-4'>
+          <XPowerByPrivacy />
+          <XPowerBy />
+        </section>
+      </div>
+    </>
   )
 }
 

@@ -1,9 +1,6 @@
-import { Suspense } from 'react'
-import Loading from '../components/loading'
 import { getLocale, client } from '@/service'
 import { ConversationsProps } from '@/interface'
 import Main from './main'
-import Sidebar from '@/app/chat/sidebar'
 
 async function getAppInfo() {
   const { status, data: appInfo } = await client.getApplicationParameters()
@@ -29,10 +26,7 @@ const Home = async () => {
   const conversations = await getConversations()
   return (
     <main className={'flex w-full m-h-screen'}>
-      <Suspense fallback={<Loading />}>
-        <Sidebar locale={locale} {...conversations} />
-      </Suspense>
-      <Main {...appInfo} locale={locale} />
+      <Main {...appInfo} conversations={conversations} locale={locale} />
     </main>
   )
 }
