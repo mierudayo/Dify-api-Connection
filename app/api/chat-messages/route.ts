@@ -6,12 +6,12 @@ export async function POST(request: NextRequest) {
   const { inputs, query, conversation_id } = await request.json()
   const cookieStore = cookies()
   const user = cookieStore.get('user')?.value || 'anonymous'
-  const res = await client.createChatMessage(
+  const { data } = await client.createChatMessage(
     inputs,
     query,
     user,
     true,
     conversation_id
   )
-  return new Response(res.data)
+  return new Response(data)
 }
