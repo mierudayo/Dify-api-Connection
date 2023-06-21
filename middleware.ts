@@ -1,15 +1,16 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { v4 } from 'uuid'
 
 export function middleware(request: NextRequest) {
-  // check if the locale cookie exists
-  if (request.cookies.has('locale')) {
-    // if it does, return the next response
-    return NextResponse.next()
-  } else {
-    // if it doesn't, set the locale cookie to 'en' and return the next response
-    const response = NextResponse.next()
+  const response = NextResponse.next()
+  // Check and set the locale cookie if it doesn't exist
+  if (!request.cookies.has('locale')) {
     response.cookies.set('locale', 'en')
-    return response
   }
+  // Check and set the user cookie if it doesn't exist
+  if (!request.cookies.has('user')) {
+    response.cookies.set('user', v4())
+  }
+  return response
 }
