@@ -1,6 +1,7 @@
 'use client'
 import { FC, useReducer } from 'react'
 import { AppProps, LocaleProps } from '@/interface'
+
 import Welcome from '@/components/welcome'
 import Form from '@/components/form'
 import XPowerBy, { XPowerByPrivacy } from '@/components/x-power-by'

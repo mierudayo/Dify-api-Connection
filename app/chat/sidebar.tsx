@@ -7,7 +7,7 @@ import MenuItem from '@/components/menu-item'
 
 import I18N from '@/i18n'
 
-const Main: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
+const Sidebar: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
   return (
     <div className='flex flex-col shrink-0 w-60 h-screen bg-white hidden sm:block'>
       <div className='flex items-center w-full h-16 p-4'>
@@ -44,4 +44,4 @@ const Main: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
   )
 }
 
-export default Main
+export default Sidebar
