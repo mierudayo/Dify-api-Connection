@@ -4,7 +4,7 @@ import { AppProps, LocaleProps } from '@/interface'
 import Welcome from '@/components/welcome'
 import Form from '@/components/form'
 import XPowerBy, { XPowerByPrivacy } from '@/components/x-power-by'
-import { t } from '@/i18n'
+import I18N from '@/i18n'
 
 interface IState {
   inputs: any[]
@@ -59,12 +59,12 @@ const Main: FC<AppProps & LocaleProps> = ({ user_input_form, locale }) => {
     <div className='flex flex-col w-full pt-32 px-5 sm:px-8 md:px-72 '>
       <section className='mb-6'>
         <Welcome
-          name={t('app.welcome_message', locale)}
-          description={t('app.welcome_message_description', locale)}
+          name={I18N(locale)('app.welcome_message')}
+          description={I18N(locale)('app.welcome_message_description')}
         />
       </section>
       <section className='mb-4'>
-        <Form hint={t('app.initial_prompt', locale)} items={items} />
+        <Form hint={I18N(locale)('app.initial_prompt')} items={items} />
       </section>
 
       <section className='flex flex-col sm:flex-row items-center justify-between gap-4'>

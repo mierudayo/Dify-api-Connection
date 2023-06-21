@@ -5,7 +5,7 @@ import Button from '@/components/button'
 import PencilSquare from '@heroicons/react/24/solid/PencilSquareIcon'
 import MenuItem from '@/components/menu-item'
 
-import { t } from '@/i18n'
+import I18N from '@/i18n'
 
 const Main: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
   return (
@@ -15,7 +15,7 @@ const Main: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
           🤖️
         </span>
         <span className='text-gray-800 text-md font-semibold truncate'>
-          {t('app.name', locale)}
+          {I18N(locale)('app.name')}
         </span>
       </div>
       <div className='flex  mx-4'>
@@ -26,12 +26,12 @@ const Main: FC<ConversationsProps & LocaleProps> = ({ locale }) => {
           className='w-full'
         >
           <PencilSquare className='h-4 w-4 mr-2 text-blue-600' />
-          <span className='text-blue-600'>{t('app.new_chat', locale)}</span>
+          <span className='text-blue-600'>{I18N(locale)('app.new_chat')}</span>
         </Button>
       </div>
       <div className='mt-6 mx-4'>
         <div className='ml-4 text-gray-500 text-xs mb-1'>
-          {t('app.chats', locale)}
+          {I18N(locale)('app.chats')}
         </div>
         <div className='flex flex-col'>
           <MenuItem text='Menu Item' onClick={() => {}} />
