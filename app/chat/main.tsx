@@ -11,8 +11,10 @@ import I18N from '@/i18n'
 
 interface ExtraPropss {
   user: string
+  conversations: ConversationsProps[]
 }
 interface IState {
+  conversations: ConversationsProps[]
   inputs: any
   query: string
   conversation_id: string | null
@@ -51,12 +53,14 @@ function reducer(state: IState, action: IAction): IState {
   }
 }
 
-const Main: FC<AppProps & LocaleProps & ConversationsProps & ExtraPropss> = ({
+const Main: FC<AppProps & LocaleProps & ExtraPropss> = ({
   user,
   user_input_form,
-  locale
+  locale,
+  conversations
 }) => {
   const initialState: IState = {
+    conversations,
     inputs: [],
     query: '',
     conversation_id: null,
