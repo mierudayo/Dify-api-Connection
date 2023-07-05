@@ -9,7 +9,9 @@ interface WelcomeProps {
 const Welcome: FC<WelcomeProps> = ({ name, description }) => {
   return (
     <div className={cn('flex flex-col')}>
-      <div className={cn('font-semibold text-gray-800', 'text-xl sm:text-2xl')}>👏 Welcome to use {name}</div>
+      <div className={cn('font-semibold text-gray-800', 'text-xl sm:text-2xl')}>
+        {name}
+      </div>
       <div className='text-gray-500 text-sm'>{description}</div>
     </div>
   )
