@@ -9,11 +9,21 @@ import Form from '@/components/form'
 import XPowerBy, { XPowerByPrivacy } from '@/components/x-power-by'
 import I18N from '@/i18n'
 
+enum Status {
+  INIT = 'init',
+  READY = 'ready',
+  TYPING = 'typing',
+  SENDING = 'sending',
+  ERROR = 'error',
+  SUCCESS = 'success'
+}
+
 interface ExtraPropss {
   user: string
   conversations: ConversationsProps[]
 }
 interface IState {
+  status: Status
   conversations: ConversationsProps[]
   inputs: any
   query: string
@@ -28,6 +38,8 @@ interface IAction {
 
 function reducer(state: IState, action: IAction): IState {
   switch (action.type) {
+    case 'NEW_CONVERSATION':
+      return action.payload
     case 'SET_QUERY':
       return {
         ...state,
@@ -40,6 +52,7 @@ function reducer(state: IState, action: IAction): IState {
       })
       return {
         ...state,
+        status: Status.READY,
         inputs: h
       }
     case 'SET_CONVERSATION_ID':
@@ -52,6 +65,9 @@ function reducer(state: IState, action: IAction): IState {
     }
   }
 }
+const Chat: FC<LocaleProps> = ({}) => {
+  return <>Chat</>
+}
 
 const Main: FC<AppProps & LocaleProps & ExtraPropss> = ({
   user,
@@ -60,6 +76,7 @@ const Main: FC<AppProps & LocaleProps & ExtraPropss> = ({
   conversations
 }) => {
   const initialState: IState = {
+    status: Status.INIT,
     conversations,
     inputs: [],
     query: '',
@@ -83,6 +100,7 @@ const Main: FC<AppProps & LocaleProps & ExtraPropss> = ({
       options: iv.options
     }
   })
+
   return (
     <>
       <div className='flex flex-col shrink-0 w-60 h-screen bg-white hidden sm:block'>
@@ -98,7 +116,9 @@ const Main: FC<AppProps & LocaleProps & ExtraPropss> = ({
           <Button
             text=''
             type='transparent'
-            onClick={() => {}}
+            onClick={() =>
+              dispatch({ type: 'NEW_CONVERSATION', payload: initialState })
+            }
             className='w-full'
           >
             <PencilSquare className='h-4 w-4 mr-2 text-blue-600' />
@@ -120,29 +140,35 @@ const Main: FC<AppProps & LocaleProps & ExtraPropss> = ({
         </div>
       </div>
       <div className='flex flex-col w-full pt-32 px-5 sm:px-8 md:px-72 '>
-        <section className='mb-6'>
-          <Welcome
-            name={I18N(locale)('app.welcome_message')}
-            description={I18N(locale)('app.welcome_message_description')}
-          />
-        </section>
-        <section className='mb-4'>
-          <Form
-            hint={I18N(locale)('app.initial_prompt')}
-            items={items}
-            onSubmit={(items) => {
-              dispatch({
-                type: 'SET_INPUT',
-                payload: items
-              })
-            }}
-          />
-        </section>
+        {state.status == Status.INIT ? (
+          <>
+            <section className='mb-6'>
+              <Welcome
+                name={I18N(locale)('app.welcome_message')}
+                description={I18N(locale)('app.welcome_message_description')}
+              />
+            </section>
+            <section className='mb-4'>
+              <Form
+                hint={I18N(locale)('app.initial_prompt')}
+                items={items}
+                onSubmit={(items) => {
+                  dispatch({
+                    type: 'SET_INPUT',
+                    payload: items
+                  })
+                }}
+              />
+            </section>
 
-        <section className='flex flex-col sm:flex-row items-center justify-between gap-4'>
-          <XPowerByPrivacy />
-          <XPowerBy />
-        </section>
+            <section className='flex flex-col sm:flex-row items-center justify-between gap-4'>
+              <XPowerByPrivacy />
+              <XPowerBy />
+            </section>
+          </>
+        ) : (
+          <Chat locale={locale} />
+        )}
       </div>
     </>
   )
