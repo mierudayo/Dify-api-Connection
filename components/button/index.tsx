@@ -1,12 +1,13 @@
-import React, { FC, ReactNode } from 'react'
-import cn from 'classnames'
-import styles from './style.module.css'
+import React, { FC, ReactNode } from 'react';
+import cn from 'classnames';
+import styles from './style.module.css';
+
 interface ButtonProps {
-  text: string
-  type: 'blue' | 'gray' | 'red' | 'white' | 'transparent'
-  className?: string
-  onClick?: () => void
-  children?: ReactNode
+  text?: string;
+  type?: 'blue' | 'gray' | 'red' | 'white' | 'transparent';
+  className?: string;
+  onClick?: () => void;
+  children?: ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -14,24 +15,25 @@ const Button: FC<ButtonProps> = ({
   children,
   className,
   type = 'blue',
-  onClick
+  onClick,
 }: ButtonProps) => {
+  const buttonClassNames = cn(
+    styles.button,
+    {
+      [styles.blue]: type === 'blue',
+      [styles.gray]: type === 'gray',
+      [styles.red]: type === 'red',
+      [styles.white]: type === 'white',
+      [styles.transparent]: type === 'transparent',
+    },
+    className
+  );
+
   return (
-    <button
-      onClick={onClick}
-      className={cn(
-        styles.button,
-        type === 'blue' && styles.blue,
-        type === 'gray' && styles.gray,
-        type === 'red' && styles.red,
-        type === 'white' && styles.white,
-        type === 'transparent' && styles.transparent,
-        className && className
-      )}
-    >
+    <button onClick={onClick} className={buttonClassNames}>
       {children || text}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
