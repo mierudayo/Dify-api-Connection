@@ -10,8 +10,8 @@ export async function POST(request: NextRequest) {
     query,
     user,
     inputs,
-    true,
     conversation_id
+    true,
   )
   return new Response(data)
 }
