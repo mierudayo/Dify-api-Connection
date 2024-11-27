@@ -1,12 +1,12 @@
 'use client'
-import React, { FC, useState } from 'react'
-import styles from './style.module.scss'
-import Button from '@/components/button'
-import ChatBubble from '@heroicons/react/24/solid/ChatBubbleOvalLeftEllipsisIcon'
-import Hint from '@/components/hint'
-import Input from '@/components/input'
-import Select from '@/components/select'
-import cn from 'classnames'
+import cn from 'classnames';
+import React, { FC, useState } from 'react';
+import Button from '@/components/button';
+import ChatBubble from '@heroicons/react/24/solid/ChatBubbleOvalLeftEllipsisIcon';
+import Hint from '@/components/hint';
+import Input from '@/components/input';
+import Select from '@/components/select';
+import styles from './style.module.scss';
 
 export interface FormItemProps {
   label: string
