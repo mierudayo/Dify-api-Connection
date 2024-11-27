@@ -7,9 +7,9 @@ export async function POST(request: NextRequest) {
   const cookieStore = cookies()
   const user = cookieStore.get('user')?.value || 'anonymous'
   const { data } = await client.createChatMessage(
-    inputs,
     query,
     user,
+    inputs,
     true,
     conversation_id
   )
